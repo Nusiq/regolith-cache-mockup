@@ -1,0 +1,44 @@
+{
+  "name": "Project name",
+  "author": "Your name",
+  "packs": {
+    "behaviorPack": "./packs/BP",
+    "resourcePack": "./packs/RP"
+  },
+  "regolith": {
+    "profiles": {
+      "dev": {
+        "filters": [
+          {
+            "filter": "get_file_stats"
+          },
+          {
+            "filter": "example_filter"
+          },
+          {
+            "filter": "filter_postprocessing"
+          }
+        ],
+        "export": {
+          "target": "local",
+          "readOnly": false
+        }
+      }
+    },
+    "filterDefinitions": {
+      "get_file_stats": {
+        "runWith": "python",
+        "script": "./local_filters/get_file_stats.py"
+      },
+      "example_filter": {
+        "runWith": "python",
+        "script": "./local_filters/example_filter.py"
+      },
+      "filter_postprocessing": {
+        "runWith": "python",
+        "script": "./local_filters/filter_postprocessing.py"
+      }
+    },
+    "dataPath": "./data"
+  }
+}
